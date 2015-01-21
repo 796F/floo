@@ -11,13 +11,16 @@
   "keywords": [
     "command",
     "line",
-    "file",
+    "data",
     "transfer",
     "tool",
     "text",
     "copy", 
     "paste",
-    "pipe"
+    "pipe",
+    "local",
+    "network",
+    "lan"
   ],
   "dependencies": {
     "copy-paste": "^1.0.1",

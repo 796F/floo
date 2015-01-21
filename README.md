@@ -1,50 +1,48 @@
 # floo
 
-floo is a simple command line LAN transfer tool inspired by a well known wizard.  
-
-it accepts both pipe and file/dir.
+floo is a mimimal command line LAN transfer tool inspired by a well known wizard.
 
 ## install
 
 `npm install -g floo`
 
-## piped
+## usage examples
 
 media files :
 
 ```
   myComp~$ cat myFace.jpg | floo
-  floo Openned : 1549
+  floo powder 123
 
   mySecondComp~$ floo 1549 >> myFace.jpg
 ```
 
-text blobs : 
+clipboare : 
 
 ```
-  myComp~$ echo "kopee me to ur klipboredz" | floo
-  floo Openned : 9377
+  myComp~$ pbpaste | floo
+  floo powder 123
 
   mySecondComp~$ floo 9377 | pbcopy
 ```
 
-## argument
+## to be implemented
 
-file :
+file arguments :
 
 ```
   myComp~$ floo myFace.jpg
-  floo Openned : 4343
+  floo powder 123
 
   mySecondComp~$ floo 4343
   Teleported : myFace.jpg
 ```
 
-entire directory : 
+directory arguments :
 
 ```
   myComp~$ floo /my/dir
-  floo Openned : 1337
+  floo powder 123
 
   mySecondComp~$ floo 1337
   Teleported : /my/dir/porn1.jpg
@@ -53,7 +51,3 @@ entire directory :
   ...
   Teleported : /my/dir/porn1957283940957.jpg
 ```
-
-## todo
-
-file name and directory transfers
