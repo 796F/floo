@@ -4,9 +4,9 @@
 
 var fs = require('fs');
 var walk    = require('walk')
-var Portal = require('./lib/portal');
-
 var _ = require('underscore');
+
+var Portal = require('./lib/portal');
 
 if(process.argv.length == 2){
   //pipe portal portal
@@ -16,7 +16,6 @@ if(process.argv.length == 2){
     data += chunk;
   });
   process.stdin.on('end', function() {
-    // console.log('PIPE TO PORTAL', pipeIn);
     var portal = new Portal();
     portal.startServer(data);
   });
@@ -38,8 +37,6 @@ if(process.argv.length == 2){
     // }
 } else {
   //portal 1337
-  var portalNumber = parseInt(process.argv[2]);
   var portal = new Portal();
-  portal.startClient(portalNumber)
+  portal.startClient(parseInt(process.argv[2]));
 }
-
