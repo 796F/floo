@@ -1,0 +1,32 @@
+{
+  "name": "floo",
+  "version": "0.0.1",
+  "description": "Floo is a command-line tool for transfering data between computers",
+  "author": "Mike Xia",
+  "preferGlobal": "true",
+  "main": "./lib/http-server",
+  "bin": {
+    "floo": "./floo.js"
+  },
+  "keywords": [
+    "command",
+    "line",
+    "file",
+    "transfer",
+    "tool",
+    "text",
+    "copy", 
+    "paste",
+    "pipe"
+  ],
+  "dependencies": {
+    "copy-paste": "^1.0.1",
+    "polo": "^0.7.1",
+    "underscore": "^1.7.0",
+    "walk": "^2.3.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xiamike/floo.git"
+  }
+}
