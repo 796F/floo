@@ -4,7 +4,7 @@ floo is a mimimal command line LAN transfer tool inspired by a well known wizard
 
 ## install
 
-`npm install -g floo`
+`npm install floo`
 
 ## usage examples
 
