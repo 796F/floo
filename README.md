@@ -4,20 +4,20 @@ floo is a mimimal command line LAN transfer tool inspired by a well known wizard
 
 ## install
 
-`npm install -g floo`
+`npm install floo`
 
 ## usage examples
 
 media files :
 
 ```
-  myComp~$ cat myFace.jpg | floo
+  myComp~$ cat myFace.jpg | floo -i
   floo powder 123
 
-  mySecondComp~$ floo 1549 >> myFace.jpg
+  mySecondComp~$ floo -o 123 >> myFace.jpg
 ```
 
-clipboare : 
+clipboard : 
 
 ```
   myComp~$ pbpaste | floo
