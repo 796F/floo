@@ -16,15 +16,9 @@ if(process.argv.length == 2){
 
   if(flooName) {
     if(!process.stdin.isTTY) portal.setStream(process.stdin);
-    portal.startServer(flooName, function(error) {
-      if(error) {
-        console.log('startServer error :', error);
-      }
-      _exit();
-    });
+    portal.startServer(flooName, nconf.get('port') || 1337, _exit);
   }else{
-    console.log('name required: `floo name some-name`');
-    _exit();
+    _exit('name required: `floo name some-name`');
   }
 
 } else if(process.argv.length >= 3) {
@@ -33,16 +27,24 @@ if(process.argv.length == 2){
   if(command == 'name' || command == '-n') {
     
     if(process.argv.length == 4) {
-      _saveName(process.argv[3])
+      _save('name', process.argv[3])
     }else {
       var name = nconf.get('name') || 'not set'
-      console.log('floo name:', name);
-      _exit();
+      _exit('floo name:' + name);
     }
 
   }else if (command == 'list' || command == '-l') {
     
     portal.list();
+
+  }else if (command == 'port' || command == '-p') {
+    
+    if(process.argv.length == 4) {
+      _save('port', process.argv[3])
+    }else {
+      var port = nconf.get('port') || 'default 1337'
+      _exit('floo port:' + port);
+    }
 
   }else if (command == 'help' || command == '-h') {
     
@@ -50,35 +52,36 @@ if(process.argv.length == 2){
       'usage:',
       '',
       'floo name some-name             name your floo (required!)', 
+      'floo                            create a floo with your clipboard',
+      'cat bacon.jpg | floo            create a floo with piped data',
       'floo list                       list floos on network',
       ].join('\n'));
 
   }else {
 
     if(!process.stdout.isTTY) portal.setStream(process.stdout);
-    portal.startClient(command, function(error) {
-      if(error) console.log('startClient error :', error);
-      _exit();
-    });
+    portal.startClient(command, _exit);
 
   }
 }
 
-function _handleError(error) {
-  console.log(this, error);
-}
+function _save(key, value) {
+  if(['name', 'list', 'help', 'port'].indexOf(value) >= 0) {
+    _exit('you cannot name your floo `' + value + '` silly ... thats a command ');
+  }else if(key == 'port' && parseInt(value) == 'NaN') {
+    _exit('please use a number for port');
+  }
 
-function _saveName(name) {
-  nconf.set('name', name);
+  nconf.set(key, value);
   nconf.save(function (err) {
-    if (err) 
-      console.error('config save error', err);
-    else 
-      console.log('your fieplace is now named', name);
+    if (err) console.log('config save error', err);
+    else if (key == 'name') console.log('your fireplace is now named', value);
+    else if (key == 'port') console.log('your port is set to', value)
     _exit();
   });
 }
 
-function _exit() {
+function _exit(message) {
+  if(message) console.log(message);
   process.exit(0);
 }
