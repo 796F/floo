@@ -1,58 +1,56 @@
 # floo
 
-floo is a LAN command line data transfer tool inspired by a well-known wizardry concept.
+floo is a simple LAN command line data transfer tool inspired by well-known modern wizardry.
 
 its (arguably) useful for transfering files and clipboard content between computers via LAN.
 
-this is also my first tool, so any code reviews/feedback/ideas are welcome!  
+this is also my first tool, so any code reviews/feedback/ideas are much appreciated!
 
 ## 1.  install
 
 `npm install -g floo`
 
-## 2.  name your floo
+## 2.  name your floo using `floo name`
 
 ```
 LocalComputer-1 ~ $ floo name sirius-floo
 your fireplace is now named sirius-floo
 ```
 
-## 3.  use floo - responsibly
+## 3.  start using floo - responsibly
 
-transfer clipboard content via floo! 
+to transfer clipboard content, simply run `floo` at one computer, and `floo sirius-floo` at another
 
 ```
 LocalComputer-1 ~ $ floo
 sirius-floo is now ready on port 1337
-```
 
-then at another computer ...
+...
 
-```LocalComputer-2 ~ $ floo sirius-floo```
+LocalComputer-2 ~ $ floo sirius-floo```
 
 viola! your clipboard just floo
 
-piping things ... like bacon!
+now let's pipe something ... like bacon!
 
 ```
 LocalComputer-1 ~ $ cat bacon.jpg | floo
 sirius-floo is now ready on port 1337
-```
 
-then at another computer ...
+...
 
-`LocalComputer-9 ~ $ floo sirius-floo >> bacon_get.jpg`
+LocalComputer-9 ~ $ floo sirius-floo >> bacon_get.jpg```
 
 viola!  your bacon just floo!
 
-## getting nearby floo! 
+## get nearby floo using `floo list` 
 
 ```
 LocalComputer-1 ~ $ floo list
 floo-rider
 sirius-floo
 floo-away
-bacon-floo
+my-bacon-floo
 ```
 
 ## misc
