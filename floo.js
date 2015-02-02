@@ -6,7 +6,8 @@ var fs = require('fs');
 var walk    = require('walk')
 var _ = require('underscore');
 var Portal = require('./lib/portal');
-
+var os = require('os');
+var ifaces = os.networkInterfaces();
 
 debugger;
 if(process.argv.length == 2){
@@ -70,6 +71,12 @@ if(process.argv.length == 2){
 
 
 /*
+
+/////////////////////////////////////////////// WRITEABLE STREAM /////////////////////////////////////////////////
+
+from http://nodejs.org/api/stream.html 
+var writable = fs.createWriteStream('file.txt');
+
 
 /////////////////////////////////////////////// HANDLING OPTIONS /////////////////////////////////////////////////
 
