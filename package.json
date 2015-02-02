@@ -23,6 +23,7 @@
   ],
   "dependencies": {
     "copy-paste": "^1.0.1",
+    "nconf": "^0.7.1",
     "polo": "^0.7.1"
   },
   "repository": {
