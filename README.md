@@ -9,7 +9,7 @@ TODO : implement transfering entire directories.
 
 `npm install -g floo`
 
-## configure floo
+## name your floo
 
 ```
 LocalComputer-1 ~ $ floo name sirius-floo

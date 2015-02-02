@@ -23,10 +23,7 @@
   ],
   "dependencies": {
     "copy-paste": "^1.0.1",
-    "optimist": "^0.6.1",
-    "polo": "^0.7.1",
-    "underscore": "^1.7.0",
-    "walk": "^2.3.9"
+    "polo": "^0.7.1"
   },
   "repository": {
     "type": "git",
