@@ -27,7 +27,8 @@ sirius-floo is now ready on port 1337
 
 ...
 
-LocalComputer-2 ~ $ floo sirius-floo```
+LocalComputer-2 ~ $ floo sirius-floo
+```
 
 viola! your clipboard just floo
 
@@ -39,7 +40,8 @@ sirius-floo is now ready on port 1337
 
 ...
 
-LocalComputer-9 ~ $ floo sirius-floo >> bacon_get.jpg```
+LocalComputer-9 ~ $ floo sirius-floo >> bacon_get.jpg
+```
 
 viola!  your bacon just floo!
 
