@@ -1,68 +1,42 @@
 # floo
 
-floo is a mimimal command line LAN transfer tool inspired by a well known wizard.
+floo is a LAN command line data transfer tool inspired by a well-known wizardry concept.
 
-## install
+## step 1 : install
 
 `npm install -g floo`
 
-## basic usage
+## step 2 : configure floo
 
-step 1: decide on a portal name.  for these examples, I have used dumbledore.  
+`floo name sirius-floo`
+your fireplace is now named `sirius-floo`
 
-clipboard
+## step 3 : use responsibly
 
-```
-ctrl+c something ...
+transfer clipboard content via floo! 
 
-myComp~$ floo -c dumbledore
-clipboard floo ready!
+`LocalComputer-1 ~ $ floo clip`
+`LocalComputer-2 ~ $ floo clip sirius-floo`
 
-mySecondComp~$ floo -c dumbledore
-floo to clipboard!
+piping things ... like bacon!
 
-now your cliboard is copied to mySecondComp!
-```
+`LocalComputer-1 ~ $ cat bacon.jpg | floo`
+`LocalComputer-9 ~ $ floo sirius-floo >> stolen_bacon.jpg`
 
-pipes
-
-```
-echo, cat, etc ...
-
-myComp~$ cat myConfig.txt | floo dumbledore
-pipe floo ready!
-
-mySecondComp~$ floo dumbledore >> myConfig.txt
-out comes floo!
-
-fat pipes fit files of any size!
-```
-
-## other options
-
-file io using `-f`:
+## get nearby floo! 
 
 ```
-myComp~$ floo -f myConfig.txt dumbledore
-mySecondComp~$ floo dumbledore
-
+LocalComputer-1 ~ $ floo list
+floo-rider
+sirius-floo
+floo-away
+floo-in
 ```
 
-directory io using `-d`:
+## commands
 
 ```
-myComp~$ floo -d /my/configs/dir dumbledore
-
-mySecondComp~$ floo -d /my/new/dir dumbledore
-
+floo name (-n)
+floo clip (-c)
+floo list (-l)
 ```
-
-## data output examples
-
-file : 
-
-`mySecondComp~$ floo 123 myConfig.txt`
-
-directories :
-
-`mySecondComp~$ floo 123 ./my/new/dir`
