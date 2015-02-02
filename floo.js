@@ -19,6 +19,8 @@ var argv = require('optimist').argv;
 
 
 
+
+debugger;
 if(process.argv.length == 2){
   //pipe
   process.stdin.resume();
@@ -28,10 +30,24 @@ if(process.argv.length == 2){
   });
   process.stdin.on('end', function() {
     var portal = new Portal();
-    portal.startServer(data);
-  });
+    portal.setStream(process.stdin);
+    portal.startServer();
+  }else {
+
+    /*****
+     * Floo run without pipe or arguments.  Tell user how to use.  
+     *****/
+
+     console.log('try this ... echo "hello world" | floo');    
+  }
 } else if(process.argv.length == 3 && !parseInt(process.argv[2])) {
+<<<<<<< HEAD
     
+=======
+
+    // //portal myFile.jpg 
+    // //portal /myDir
+>>>>>>> 331cda11d3e2d7fc2d4bbda218c7c00a21a78816
     // if(fs.lstatSync(process.argv[2]).isDirectory()) {
     //   var walker = walk.walk(process.argv[2], { followLinks: false });
     //   var files = [];
@@ -48,16 +64,38 @@ if(process.argv.length == 2){
 } else if(process.argv.length == 3 && parseInt(process.argv[2])) {
   //portal 1337
   var portal = new Portal();
+<<<<<<< HEAD
   portal.startClient(parseInt(process.argv[2]));
 
 } else if(process.argv.length == 3 && process.argv[2] == '--clipboard') {
   console.log('directly from clipboard')
+=======
+  if(!process.stdout.isTTY) {
+    
+    /*****
+     * Floo is trying to pipe out.  Create a portal, and tell the portal the stream is stdout
+     *****/
+
+     portal.setStream(process.stdout);
+     portal.startClient(parseInt(process.argv[2]));
+  }else{
+    
+    /*****
+     * Floo is trying to write to a file.  Create a write stream and pass it to the portal.
+     *****/
+
+     var writable = fs.createWriteStream( process.argv[3] );
+     portal.setStream(writable);
+     portal.startClient(process.argv[2])
+  }
+>>>>>>> 331cda11d3e2d7fc2d4bbda218c7c00a21a78816
 }
 
 
 
 /*
 
+<<<<<<< HEAD
 //////////////////////////////////////////// DETECTING PIPE ////////////////////////////////////////////////////
 
 if (process.stdin.isTTY) {
@@ -89,6 +127,8 @@ self.on('end', function() {
 });
 
 
+=======
+>>>>>>> 331cda11d3e2d7fc2d4bbda218c7c00a21a78816
 /////////////////////////////////////////////// HANDLING OPTIONS /////////////////////////////////////////////////
 
 #!/usr/bin/env node
@@ -124,6 +164,7 @@ if (argv.h || argv.help) {
     "  -h --help          Print this list and exit."
   ].join('\n'));
   process.exit();
+<<<<<<< HEAD
 }
 
 var port = argv.p || parseInt(process.env.PORT, 10),
@@ -148,6 +189,32 @@ if (!port) {
   listen(port);
 }
 
+=======
+}
+
+var port = argv.p || parseInt(process.env.PORT, 10),
+    host = argv.a || '0.0.0.0',
+    log = (argv.s || argv.silent) ? (function () {}) : console.log,
+    ssl = !!argv.S || !!argv.ssl,
+    requestLogger;
+
+if (!argv.s && !argv.silent) {
+  requestLogger = function(req) {
+    log('[%s] "%s %s" "%s"', (new Date).toUTCString(), req.method.cyan, req.url.cyan, req.headers['user-agent']);
+  }
+}
+
+if (!port) {
+  portfinder.basePort = 8080;
+  portfinder.getPort(function (err, port) {
+    if (err) throw err;
+    listen(port);
+  });
+} else {
+  listen(port);
+}
+
+>>>>>>> 331cda11d3e2d7fc2d4bbda218c7c00a21a78816
 function listen(port) {
   var options = {
     root: argv._[0],
@@ -199,4 +266,8 @@ if (process.platform !== 'win32') {
 }
 
 
+<<<<<<< HEAD
 */
+=======
+*/
+>>>>>>> 331cda11d3e2d7fc2d4bbda218c7c00a21a78816
