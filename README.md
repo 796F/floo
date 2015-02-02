@@ -4,50 +4,65 @@ floo is a mimimal command line LAN transfer tool inspired by a well known wizard
 
 ## install
 
-`npm install floo`
+`npm install -g floo`
 
-## usage examples
+## basic usage
 
-media files :
+step 1: decide on a portal name.  for these examples, I have used dumbledore.  
 
-```
-  myComp~$ cat myFace.jpg | floo -i
-  floo powder 123
-
-  mySecondComp~$ floo -o 123 >> myFace.jpg
-```
-
-clipboard : 
+clipboard
 
 ```
-  myComp~$ pbpaste | floo
-  floo powder 123
+ctrl+c something ...
 
-  mySecondComp~$ floo 9377 | pbcopy
+myComp~$ floo -c dumbledore
+clipboard floo ready!
+
+mySecondComp~$ floo -c dumbledore
+floo to clipboard!
+
+now your cliboard is copied to mySecondComp!
 ```
 
-## to be implemented
-
-file arguments :
+pipes
 
 ```
-  myComp~$ floo myFace.jpg
-  floo powder 123
+echo, cat, etc ...
 
-  mySecondComp~$ floo 4343
-  Teleported : myFace.jpg
+myComp~$ cat myConfig.txt | floo dumbledore
+pipe floo ready!
+
+mySecondComp~$ floo dumbledore >> myConfig.txt
+out comes floo!
+
+fat pipes fit files of any size!
 ```
 
-directory arguments :
+## other options
+
+file io using `-f`:
 
 ```
-  myComp~$ floo /my/dir
-  floo powder 123
+myComp~$ floo -f myConfig.txt dumbledore
+mySecondComp~$ floo dumbledore
 
-  mySecondComp~$ floo 1337
-  Teleported : /my/dir/porn1.jpg
-  Teleported : /my/dir/porn2.jpg
-  Teleported : /my/dir/porn3.jpg
-  ...
-  Teleported : /my/dir/porn1957283940957.jpg
 ```
+
+directory io using `-d`:
+
+```
+myComp~$ floo -d /my/configs/dir dumbledore
+
+mySecondComp~$ floo -d /my/new/dir dumbledore
+
+```
+
+## data output examples
+
+file : 
+
+`mySecondComp~$ floo 123 myConfig.txt`
+
+directories :
+
+`mySecondComp~$ floo 123 ./my/new/dir`
