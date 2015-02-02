@@ -2,39 +2,46 @@
 
 floo is a LAN command line data transfer tool inspired by a well-known wizardry concept.
 
-its useful for transfering files and clipboard content between computers via LAN.
-TODO : implement transfering entire directories.
+its (arguably) useful for transfering files and clipboard content between computers via LAN.
 
-## install
+this is also my first tool, so any code reviews/feedback/ideas are welcome!  
+
+## 1.  install
 
 `npm install -g floo`
 
-## name your floo
+## 2.  name your floo
 
 ```
 LocalComputer-1 ~ $ floo name sirius-floo
 your fireplace is now named sirius-floo
 ```
 
-## use floo responsibly
+## 3.  use floo - responsibly
 
-#### transfer clipboard content via floo! 
+transfer clipboard content via floo! 
 
-`LocalComputer-1 ~ $ floo`
+```
+LocalComputer-1 ~ $ floo
+sirius-floo is now ready on port 1337
+```
 
-then ...
+then at another computer ...
 
-`LocalComputer-2 ~ $ floo sirius-floo`
+```LocalComputer-2 ~ $ floo sirius-floo```
 
 viola! your clipboard just floo
 
-#### piping things ... like bacon!
+piping things ... like bacon!
 
-`LocalComputer-1 ~ $ cat bacon.jpg | floo`
+```
+LocalComputer-1 ~ $ cat bacon.jpg | floo
+sirius-floo is now ready on port 1337
+```
 
-then ...
+then at another computer ...
 
-`LocalComputer-9 ~ $ floo sirius-floo >> stolen_bacon.jpg`
+`LocalComputer-9 ~ $ floo sirius-floo >> bacon_get.jpg`
 
 viola!  your bacon just floo!
 
@@ -45,12 +52,17 @@ LocalComputer-1 ~ $ floo list
 floo-rider
 sirius-floo
 floo-away
-floo-in
+bacon-floo
 ```
 
-## commands, in case you forget
+## misc
+
+`floo help` for commands
+`floo port <number>` to set the port number (default 1337)
 
 ```
-floo name (-n)
-floo list (-l)
+TODO : 
+implement transfering entire directories.
+transfer across http
+better code!
 ```

@@ -1,6 +1,6 @@
 {
   "name": "floo",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Floo is a command-line tool for transfering data between computers inspired by wizards!",
   "author": "Mike Xia",
   "preferGlobal": "true",
