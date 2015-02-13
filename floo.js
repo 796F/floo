@@ -18,7 +18,14 @@ if(process.argv.length == 2){
     if(!process.stdin.isTTY) portal.setStream(process.stdin);
     portal.startServer(flooName, nconf.get('port') || 1337, _exit);
   }else{
-    _exit('name required: `floo name some-name`');
+    _exit([
+      "\n\n\n\n",
+      'Hey this is Mike Xia, and thanks so much for trying floo!',
+      'feel free to contact me at xia.umd@gmail.com with questions/comments',
+      'Now name your computer using',
+      '   `floo name some-name`',
+      'and enjoy using floo!!', 
+      "\n\n\n\n"].join("\n"));
   }
 
 } else if(process.argv.length >= 3) {
