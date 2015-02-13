@@ -1,56 +1,68 @@
 # floo
 
-floo is a LAN command line data transfer tool inspired by a well-known wizardry concept.
+floo is a simple LAN command line data transfer tool inspired by well-known modern wizardry.
 
-its useful for transfering files and clipboard content between computers via LAN.
-TODO : implement transfering entire directories.
+its (arguably) useful for transfering files and clipboard content between computers via LAN.
 
-## install
+this is also my first tool, so any code reviews/feedback/ideas are much appreciated!
+
+## 1.  install
 
 `npm install -g floo`
 
-## name your floo
+## 2.  name your floo using `floo name`
 
 ```
 LocalComputer-1 ~ $ floo name sirius-floo
 your fireplace is now named sirius-floo
 ```
 
-## use floo responsibly
+## 3.  start using floo - responsibly
 
-#### transfer clipboard content via floo! 
+to transfer clipboard content, simply run `floo` at one computer, and `floo sirius-floo` at another
 
-`LocalComputer-1 ~ $ floo`
+```
+LocalComputer-1 ~ $ floo
+sirius-floo is now ready on port 1337
 
-then ...
+...
 
-`LocalComputer-2 ~ $ floo sirius-floo`
+LocalComputer-2 ~ $ floo sirius-floo
+```
 
 viola! your clipboard just floo
 
-#### piping things ... like bacon!
+now let's pipe something ... like bacon!
 
-`LocalComputer-1 ~ $ cat bacon.jpg | floo`
+```
+LocalComputer-1 ~ $ cat bacon.jpg | floo
+sirius-floo is now ready on port 1337
 
-then ...
+...
 
-`LocalComputer-9 ~ $ floo sirius-floo >> stolen_bacon.jpg`
+LocalComputer-9 ~ $ floo sirius-floo >> bacon_get.jpg
+```
 
 viola!  your bacon just floo!
 
-## getting nearby floo! 
+## get nearby floo using `floo list` 
 
 ```
 LocalComputer-1 ~ $ floo list
 floo-rider
 sirius-floo
 floo-away
-floo-in
+my-bacon-floo
 ```
 
-## commands, in case you forget
+## misc
+
+`floo help` for commands
+`floo port <number>` to set the port number (default 1337)
 
 ```
-floo name (-n)
-floo list (-l)
+TODO : 
+implement transfering entire directories.
+transfer across http
+better code!
 ```
